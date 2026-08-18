@@ -25,8 +25,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a second-year master's student in [Mathematics, Vision, Learning](https://www.master-mva.com/) (Applied Math and AI) at ENS Paris-Saclay. I am currently doing an internship at Inria Paris, in the [Aramis Lab](https://www.aramislab.fr/) at the Paris Brain Institute, working on sparse optimal transport for large-scale datasets.
+I am a <strong style="color: var(--global-theme-color);">second-year master's student</strong> in [Mathematics, Vision, Learning](https://www.master-mva.com/) (Applied Math and AI) at ENS Paris-Saclay. I am currently doing an internship at Inria Paris, in the [Aramis Lab](https://www.aramislab.fr/) at the Paris Brain Institute, working on <strong style="color: var(--global-theme-color);">Sparse Optimal Transport for Large-Scale Datasets</strong>.
 
-Before that, I earned a BSc in Economics and Math from Arizona State University and an MA in Economics and Social Sciences from the University of Chicago. I did pre-doctoral research with [Jan Eeckhout](https://www.janeeckhout.com/) at Pompeu Fabra University (Barcelona), and with [Marleen Marra](https://www.marleenmarra.nl/) and [Florian Oswald](https://floswald.github.io/) at Sciences Po Paris.
+Before that, I earned a <strong style="color: var(--global-theme-color);">BSc in Economics and Mathematics</strong> from Arizona State University and an <strong style="color: var(--global-theme-color);">MA in Economics and Social Sciences</strong> from the University of Chicago. I did pre-doctoral research with [Jan Eeckhout](https://www.janeeckhout.com/) at Pompeu Fabra University (Barcelona), and with [Marleen Marra](https://www.marleenmarra.nl/) and [Florian Oswald](https://floswald.github.io/) at Sciences Po Paris.
 
 Feel free to reach out via email or check out my [publications](/publications/) and [projects](/projects/).

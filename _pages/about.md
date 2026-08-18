@@ -29,4 +29,6 @@ I am a <strong style="color: var(--global-theme-color);">second-year master's st
 
 Before that, I earned a <strong style="color: var(--global-theme-color);">BSc in Economics and Mathematics</strong> from Arizona State University and an <strong style="color: var(--global-theme-color);">MA in Economics and Social Sciences</strong> from the University of Chicago. I did pre-doctoral research with [Jan Eeckhout](https://www.janeeckhout.com/) at Pompeu Fabra University (Barcelona), and with [Marleen Marra](https://www.marleenmarra.nl/) and [Florian Oswald](https://floswald.github.io/) at Sciences Po Paris.
 
+I also took two years off academics to pursue a personal dream of working as a game designer, and helped ship a game. [SEED MMO](https://store.steampowered.com/app/2938800/SEED/) is going live this year!
+
 Feel free to reach out via email or check out my [publications](/publications/) and [projects](/projects/).

@@ -25,10 +25,6 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a researcher working on machine learning and deep learning methods, with a focus on applications to medical imaging. My interests include [add your specific interests, e.g. optimal transport, generative models, image segmentation/reconstruction].
-
-<!-- TODO: replace this paragraph with your real bio -- current role/affiliation, research focus, and a couple of highlights (degrees, past positions, notable projects). -->
-
-<!-- TODO: put your headshot at assets/img/prof_pic.jpg -->
+I am a second-year master's student in [Mathematics, Vision, Learning](https://www.master-mva.com/) (Applied Math and AI) at ENS Paris-Saclay. I am currently doing an internship at Inria Paris, in the [Aramis Lab](https://www.aramislab.fr/) at the Paris Brain Institute, working on sparse optimal transport for large-scale datasets.
 
 Feel free to reach out via email or check out my [publications](/publications/) and [projects](/projects/).

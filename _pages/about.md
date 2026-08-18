@@ -25,6 +25,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
+{% include custom-fonts.html %}
+
 I am a <strong class="bio-highlight">master's student</strong> in [Mathematics, Vision, Learning](https://www.master-mva.com/) (Applied Math and AI) at <img src="/assets/img/logos/ens-paris-saclay.png" alt="" class="inst-icon">ENS Paris-Saclay. I'm currently a research intern at <img src="/assets/img/logos/inria.png" alt="" class="inst-icon">Inria Paris, in the <img src="/assets/img/logos/aramis-lab.png" alt="" class="inst-icon">[Aramis Lab](https://www.aramislab.fr/) at the <img src="/assets/img/logos/icm.png" alt="" class="inst-icon">Paris Brain Institute, working on <strong class="bio-highlight">Sparse Optimal Transport for Large-Scale Datasets</strong>, supervised by [Reuben Dorent](https://reuben.dorent.fr/) (Inria) and [Tom Vercauteren](https://cai4cai.ml/author/tom-vercauteren/) (<img src="/assets/img/logos/kcl.png" alt="" class="inst-icon">King's College London).
 
 Before that, I earned a <strong class="bio-highlight">BSc in Economics and Mathematics</strong> from <img src="/assets/img/logos/asu.png" alt="" class="inst-icon">Arizona State University and an <strong class="bio-highlight">MA in Economics and Social Sciences</strong> from the <img src="/assets/img/logos/uchicago.png" alt="" class="inst-icon">University of Chicago. I did pre-doctoral research with [Jan Eeckhout](https://www.janeeckhout.com/) at <img src="/assets/img/logos/upf.png" alt="" class="inst-icon">Pompeu Fabra University (Barcelona), and with [Marleen Marra](https://www.marleenmarra.nl/) and [Florian Oswald](https://floswald.github.io/) at <img src="/assets/img/logos/sciencespo.png" alt="" class="inst-icon">Sciences Po Paris.

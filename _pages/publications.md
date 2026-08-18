@@ -7,6 +7,8 @@ nav: true
 nav_order: 2
 ---
 
+{% include custom-fonts.html %}
+
 <!-- _pages/publications.md -->
 
 <!-- Bibsearch Feature -->

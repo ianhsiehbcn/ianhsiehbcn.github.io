@@ -15,7 +15,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
-  enabled: true # includes a list of news items
+  enabled: false # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
@@ -31,9 +31,7 @@ Before that, I earned a <strong class="bio-highlight">BSc in Economics and Mathe
 
 I also took two years off academics to pursue a personal dream of working as a game designer, and helped ship a game. [SEED MMO](https://store.steampowered.com/app/2938800/SEED/) is going live this year!
 
-Feel free to reach out via email or check out my [publications](/publications/) and [projects](/projects/).
-
 <style>
-.bio-highlight { color: var(--global-theme-color); }
+.bio-highlight { color: #d6006f; }
 html[data-theme="dark"] .bio-highlight { color: #ff4fd8; }
 </style>

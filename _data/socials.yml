@@ -2,11 +2,10 @@
 # the socials will be displayed in the order they are defined here
 # for more information, please refer to the documentation of jekyll-socials plugin: https://github.com/george-gca/jekyll-socials
 cv_pdf: /assets/pdf/example_pdf.pdf # TODO: replace with your own CV PDF file
-email: your.email@example.com # TODO: your email address
+email: ian-yee-yang.hsieh@inria.fr
 github_username: ianhsiehbcn
-rss_icon: true # comment this line to hide the RSS icon
+linkedin_username: ianhsieh101
 scholar_userid: # TODO: your Google Scholar ID (from the URL of your profile page)
-# linkedin_username: # TODO: your LinkedIn username
 # orcid_id: # TODO: your ORCID iD, e.g. 0000-0000-0000-0000
 # wechat_qr: # filename of your wechat qr-code saved as an image (e.g., wechat-qr.png if saved to assets/img/wechat-qr.png)
 # whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)

@@ -1,0 +1,17 @@
+// Local override: Space Grotesk for headings/nav (futuristic), Inter for body (readable).
+// !important guards against load-order ties with the gem's own Roboto-based rules.
+body {
+  font-family: "Inter", "Space Grotesk", sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand,
+.nav-link,
+.post-title {
+  font-family: "Space Grotesk", sans-serif !important;
+}

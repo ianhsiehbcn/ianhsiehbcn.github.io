@@ -35,4 +35,5 @@ I also took two years away from academia to pursue a personal dream of working a
 .bio-highlight { color: #d6006f; }
 html[data-theme="dark"] .bio-highlight { color: #ff4fd8; }
 .inst-icon { height: 1em; width: 1em; vertical-align: -0.15em; margin-right: 0.3em; object-fit: contain; }
+.clearfix > p { font-size: 1.15rem; line-height: 1.7; }
 </style>

@@ -33,10 +33,11 @@ nav_order: 2
   .ct-note {
     font-size: 0.85rem;
     color: var(--global-text-color-light);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 </style>
 
+<div id="ct-example">
 <div class="ct-row">
   <figure>
     <img src="{{ '/assets/img/sinkslot/source.jpg' | relative_url }}" alt="Source: Monet, Water Lilies, Evening Effect" loading="lazy">
@@ -52,9 +53,18 @@ nav_order: 2
   </figure>
 </div>
 <p class="ct-note">Color transfer with SinkSLOT takes fractions of a second.</p>
+</div>
 
 <div class="publications">
 
 {% bibliography %}
 
 </div>
+
+<script>
+  (function () {
+    var entry = document.getElementById("hsieh2026sinkslot");
+    var example = document.getElementById("ct-example");
+    if (entry && example) entry.prepend(example);
+  })();
+</script>

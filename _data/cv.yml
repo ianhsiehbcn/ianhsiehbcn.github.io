@@ -1,15 +1,35 @@
 cv:
-  name: Ian Hsieh
-  label: ""
-  email: ian-yee-yang.hsieh@inria.fr
-  location: ""
-  image: ""
-  summary: ""
+  sections:
+    Experience:
+      - company: Paris Brain Institute & Inria, Aramis Lab
+        position: Master's Thesis Research Intern
+        start_date: 2026-05
+      - company: Klang Games
+        position: Game Economy Designer
+        start_date: 2023-08
+        end_date: 2025-08
+      - company: Sciences Po Paris, Department of Economics
+        position: Pre-doctoral Researcher
+        start_date: 2022-08
+        end_date: 2023-07
+      - company: Pompeu Fabra University & Barcelona School of Economics
+        position: Pre-doctoral Researcher
+        start_date: 2020-07
+        end_date: 2021-10
 
-  social_networks:
-    - network: GitHub
-      username: ianhsiehbcn
-    - network: LinkedIn
-      username: ianhsieh101
-
-  sections: {}
+    Education:
+      - institution: ENS Paris-Saclay
+        degree: M2 Mathematics, Vision, Learning
+        start_date: 2025-09
+      - institution: University of Chicago
+        degree: MA Economics & Social Sciences
+        start_date: 2019-09
+        end_date: 2020-12
+      - institution: London School of Economics
+        degree: Exchange Year
+        start_date: 2017-09
+        end_date: 2018-06
+      - institution: Arizona State University
+        degree: BSc Mathematics and Economics
+        start_date: 2015-08
+        end_date: 2019-05

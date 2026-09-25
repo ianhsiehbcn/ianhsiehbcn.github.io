@@ -10,6 +10,7 @@ horizontal: false
 ---
 
 {% include custom-fonts.html %}
+{% include theme-toggle.html %}
 
 <!-- pages/projects.md -->
 <div class="projects">

@@ -26,6 +26,7 @@ latest_posts:
 ---
 
 {% include custom-fonts.html %}
+{% include theme-toggle.html %}
 
 I am a <strong class="bio-highlight">master's student</strong> in [Mathematics, Vision, Learning](https://www.master-mva.com/) (Applied Math and AI) at <img src="/assets/img/logos/ens-paris-saclay.png" alt="" class="inst-icon">ENS Paris-Saclay. I'm currently a research intern at <img src="/assets/img/logos/inria.png" alt="" class="inst-icon">Inria Paris, in the <img src="/assets/img/logos/aramis-lab.png" alt="" class="inst-icon">[Aramis Lab](https://www.aramislab.fr/) at the <img src="/assets/img/logos/icm.png" alt="" class="inst-icon">Paris Brain Institute, working on <strong class="bio-highlight">Sparse Optimal Transport for Large-Scale Datasets</strong>, supervised by [Reuben Dorent](https://reuben.dorent.fr/) (Inria) and [Tom Vercauteren](https://cai4cai.ml/author/tom-vercauteren/) (<img src="/assets/img/logos/kcl.png" alt="" class="inst-icon">King's College London).
 

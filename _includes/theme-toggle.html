@@ -1,0 +1,10 @@
+<style>
+#light-toggle-system { display: none !important; }
+html[data-theme="light"] #light-toggle-light { display: inline-block !important; }
+html[data-theme="light"] #light-toggle-dark { display: none !important; }
+html[data-theme="dark"] #light-toggle-dark { display: inline-block !important; }
+html[data-theme="dark"] #light-toggle-light { display: none !important; }
+</style>
+<script>
+  toggleThemeSetting = () => setThemeSetting(determineComputedTheme() === "dark" ? "light" : "dark");
+</script>

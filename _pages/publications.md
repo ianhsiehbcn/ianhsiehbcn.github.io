@@ -8,6 +8,7 @@ nav_order: 2
 ---
 
 {% include custom-fonts.html %}
+{% include theme-toggle.html %}
 
 <!-- _pages/publications.md -->
 

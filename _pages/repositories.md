@@ -8,6 +8,7 @@ nav_order: 4
 ---
 
 {% include custom-fonts.html %}
+{% include theme-toggle.html %}
 
 {% if site.data.repositories.github_users %}
 

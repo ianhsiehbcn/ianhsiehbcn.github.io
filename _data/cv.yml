@@ -1,7 +1,7 @@
 cv:
   sections:
     Experience:
-      - company: Paris Brain Institute & Inria, Aramis Lab
+      - company: Paris Brain Institute and Inria, Aramis Lab
         position: Master's Thesis Research Intern
         start_date: 2026-05
       - company: Klang Games
@@ -12,7 +12,7 @@ cv:
         position: Pre-doctoral Researcher
         start_date: 2022-08
         end_date: 2023-07
-      - company: Pompeu Fabra University & Barcelona School of Economics
+      - company: Pompeu Fabra University and Barcelona School of Economics
         position: Pre-doctoral Researcher
         start_date: 2020-07
         end_date: 2021-10
@@ -22,7 +22,7 @@ cv:
         degree: M2 Mathematics, Vision, Learning
         start_date: 2025-09
       - institution: University of Chicago
-        degree: MA Economics & Social Sciences
+        degree: MA Economics and Social Sciences
         start_date: 2019-09
         end_date: 2020-12
       - institution: London School of Economics

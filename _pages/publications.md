@@ -10,9 +10,17 @@ nav_order: 2
 {% include theme-toggle.html %}
 
 <style>
+  .publications .row > .abbr {
+    display: none;
+  }
+  .publications .row > .col-sm-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
   .ct-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    max-width: 600px;
     gap: 0.75rem;
     margin: 0.5rem 0 0.25rem;
   }

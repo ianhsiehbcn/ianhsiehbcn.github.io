@@ -1,0 +1,84 @@
+# Places over time for the "Where is Ian?" page. Months are inclusive; "end" omitted means present.
+- start: 1997-09
+  end: 2013-08
+  city: Taichung
+  country: Taiwan
+  lat: 24.1477
+  lon: 120.6736
+  what: Home
+- start: 2013-09
+  end: 2015-07
+  city: Richmond
+  country: Canada
+  lat: 49.1666
+  lon: -123.1336
+  what: High school (IB)
+- start: 2015-08
+  end: 2017-08
+  city: Tempe
+  country: USA
+  lat: 33.4255
+  lon: -111.94
+  what: Arizona State University
+- start: 2017-09
+  end: 2018-07
+  city: London
+  country: UK
+  lat: 51.5074
+  lon: -0.1278
+  what: London School of Economics
+- start: 2018-08
+  end: 2019-07
+  city: Tempe
+  country: USA
+  lat: 33.4255
+  lon: -111.94
+  what: Arizona State University
+- start: 2019-08
+  end: 2020-10
+  city: Chicago
+  country: USA
+  lat: 41.7886
+  lon: -87.5987
+  what: University of Chicago
+- start: 2020-11
+  end: 2021-10
+  city: Barcelona
+  country: Spain
+  lat: 41.3851
+  lon: 2.1734
+  what: Barcelona School of Economics
+- start: 2021-11
+  end: 2022-07
+  city: Hsinchu
+  country: Taiwan
+  lat: 24.8138
+  lon: 120.9675
+  what: National Service
+- start: 2022-08
+  end: 2023-07
+  city: Paris
+  country: France
+  lat: 48.8566
+  lon: 2.3522
+  what: Sciences Po
+- start: 2023-08
+  end: 2025-08
+  city: Berlin
+  country: Germany
+  lat: 52.52
+  lon: 13.405
+  what: Klang Games
+- start: 2025-09
+  end: 2026-04
+  city: Paris
+  country: France
+  lat: 48.8566
+  lon: 2.3522
+  what: ENS Paris-Saclay
+- start: 2026-05
+  city: Paris
+  country: France
+  lat: 48.8566
+  lon: 2.3522
+  what: Inria

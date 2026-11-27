@@ -61,32 +61,9 @@ cv:
         summary: A2
 
     Engagement:
-      - company: Serve the City Paris
-        position: Member and book club co-organizer
-        location: Paris, France
-        start_date: 2025-01
-      - company: Pépite PEIPS
-        position: National Student-Entrepreneur Program (Statut National Étudiant-Entrepreneur)
-        location: Paris, France
-        start_date: 2025-01
-        end_date: 2026-01
-      - company: PLUR
-        position: Food deliveries for people experiencing homelessness
-        location: Seoul, South Korea
-        start_date: 2022-01
-        end_date: 2023-01
-      - company: Homeless Helpers
-        position: Organizer and recruiter for food deliveries
-        location: Barcelona, Spain
-        start_date: 2020-01
-        end_date: 2021-01
-      - company: Clean Beach Initiative
-        position: Beach cleanups and environmental activism
-        location: Barcelona, Spain
-        start_date: 2020-01
-        end_date: 2021-01
-      - company: LSE Food Cycle Society
-        position: Organizer, food waste and human rights activism
-        location: London, UK
-        start_date: 2017-01
-        end_date: 2018-01
+      - bullet: "**Serve the City Paris** (2025 to present): member and book club co-organizer"
+      - bullet: "**Pépite PEIPS**, Paris (2025 to 2026): admitted to the French National Student-Entrepreneur Program (Statut National Étudiant-Entrepreneur)"
+      - bullet: "**PLUR**, Seoul (2022 to 2023): food deliveries for people experiencing homelessness"
+      - bullet: "**Homeless Helpers**, Barcelona (2020 to 2021): organizer and recruiter for food deliveries"
+      - bullet: "**Clean Beach Initiative**, Barcelona (2020 to 2021): beach cleanups and environmental activism"
+      - bullet: "**LSE Food Cycle Society**, London (2017 to 2018): organizer, food waste and human rights activism"

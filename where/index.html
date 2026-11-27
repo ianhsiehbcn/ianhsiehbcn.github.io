@@ -373,12 +373,11 @@
     --t-service: #d28e05;
   }
   .wi-viz h2 { font-size: 1.4rem; margin-bottom: 1rem; }
-  .wi-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 1.75rem; }
+  .wi-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 1.75rem; }
   .wi-stat { border: 1px solid var(--grid); border-radius: 12px; padding: 0.9rem 1rem; }
   .wi-stat .n { font-size: 2.2rem; font-weight: 700; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; }
   .wi-stat .l { font-size: 0.9rem; color: var(--muted); margin-top: 0.2rem; }
   .wi-stat .s { font-size: 0.78rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.35; }
-  @media (max-width: 640px) { .wi-stats { grid-template-columns: repeat(2, 1fr); } }
   .wi-legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.5rem; }
   .wi-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
   .wi-legend i { width: 14px; height: 10px; border-radius: 3px; display: inline-block; }
@@ -431,10 +430,11 @@
     var continents = uniq(countries.map(function (c) { return CONTINENT[c] || "Other"; }));
     var studied = uniq(places.filter(function (p) { return p.type === "study"; }).map(function (p) { return p.country; }));
     var worked = uniq(places.filter(function (p) { return p.type === "work"; }).map(function (p) { return p.country; }));
+    // 2x2: left column = where lived (countries, continents); right column = studied in, worked in
     var stats = [
       { n: countries.length, l: "Countries lived in", s: countries.join(", ") },
-      { n: continents.length, l: "Continents", s: continents.join(", ") },
       { n: studied.length, l: "Countries studied in", s: studied.join(", ") },
+      { n: continents.length, l: "Continents", s: continents.join(", ") },
       { n: worked.length, l: "Countries worked in", s: worked.join(", ") }
     ];
     document.getElementById("wi-stats").innerHTML = stats.map(function (t) {

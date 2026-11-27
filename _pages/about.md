@@ -36,7 +36,7 @@ Before pivoting to health AI, I earned a <strong>BSc in Economics and Mathematic
 
 I also took two years away from academia to pursue a personal dream of working as a game designer. <img src="/assets/img/logos/seed.jpg" alt="" class="inst-icon" style="border-radius: 3px;">[SEED MMO](https://store.steampowered.com/app/2938800/SEED/) is going live this year!
 
-*Keywords of interest: representation learning, cross-modality alignment, optimal transport, foundation models for biology and health, AI for science*
+*Keywords of interest: representation learning, cross-modality alignment, optimal transport, generative modeling, computer vision, foundation models for biology and health, AI for science*
 {: .bio-keywords}
 
 <style>

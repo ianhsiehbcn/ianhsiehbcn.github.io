@@ -34,7 +34,9 @@ cv:
         start_date: 2025-09
         end_date: 2026-09
         highlights:
-          - With high honors
+          - "Thesis title: Efficient Optimal Transport Approximations for Longitudinal and Multimodal Medical Image Translation"
+          - "Supervisors: [Reuben Dorent](https://reuben.dorent.fr/) and [Tom Vercauteren](https://cai4cai.ml/author/tom-vercauteren/)"
+          - "Merit: High Honors"
       - institution: University of Chicago
         degree: MA Economics and Social Sciences
         start_date: 2019-09

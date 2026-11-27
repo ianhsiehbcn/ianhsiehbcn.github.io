@@ -30,7 +30,7 @@ latest_posts:
 
 I am an <strong>incoming R&D engineer</strong> in the <img src="/assets/img/logos/aramis-lab.png" alt="" class="inst-icon">[Aramis Lab](https://www.aramislab.fr/) at [Inria Paris](https://www.inria.fr/en/inria-paris-centre) and the [Paris Brain Institute](https://parisbraininstitute.org/), affiliated with Sorbonne Université.
 
-I recently graduated from the <strong>Master 2 in <img src="/assets/img/logos/mva.png" alt="" class="inst-icon">[Mathematics, Vision, Learning](https://www.master-mva.com/) (MVA)</strong> at ENS Paris-Saclay, and completed a <strong>6-month research internship</strong> in the same lab on <strong>Sparse Optimal Transport for Large-Scale Datasets</strong>, supervised by [Reuben Dorent](https://reuben.dorent.fr/) (Aramis) and [Tom Vercauteren](https://cai4cai.ml/author/tom-vercauteren/) (King's College London).
+I recently graduated from the <strong>Master 2 in <img src="/assets/img/logos/mva.png" alt="" class="inst-icon" style="border-radius: 3px;">[Mathematics, Vision, Learning](https://www.master-mva.com/) (MVA)</strong> at ENS Paris-Saclay, and completed a <strong>6-month research internship</strong> in the same lab on <strong>Sparse Optimal Transport for Large-Scale Datasets</strong>, supervised by [Reuben Dorent](https://reuben.dorent.fr/) (Aramis) and [Tom Vercauteren](https://cai4cai.ml/author/tom-vercauteren/) (King's College London).
 
 Before pivoting to health AI, I earned a <strong>BSc in Economics and Mathematics</strong> from Arizona State University and an <strong>MA in Economics and Social Sciences</strong> from the University of Chicago, followed by pre-doctoral research fellowships at Universitat Pompeu Fabra and the Barcelona School of Economics, and at Sciences Po Paris.
 

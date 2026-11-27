@@ -51,7 +51,7 @@ cv:
     Languages:
       - name: English
         summary: C2
-      - name: Mandarin Chinese
+      - name: Chinese
         summary: C2
       - name: Spanish
         summary: B1
@@ -60,10 +60,28 @@ cv:
       - name: Korean
         summary: A2
 
-    Engagement:
-      - bullet: "**Serve the City Paris** (2025 to present): member and book club co-organizer"
-      - bullet: "**Pépite PEIPS**, Paris (2025 to 2026): admitted to the French National Student-Entrepreneur Program (Statut National Étudiant-Entrepreneur)"
-      - bullet: "**PLUR**, Seoul (2022 to 2023): food deliveries for people experiencing homelessness"
-      - bullet: "**Homeless Helpers**, Barcelona (2020 to 2021): organizer and recruiter for food deliveries"
-      - bullet: "**Clean Beach Initiative**, Barcelona (2020 to 2021): beach cleanups and environmental activism"
-      - bullet: "**LSE Food Cycle Society**, London (2017 to 2018): organizer, food waste and human rights activism"
+    Community Service:
+      - company: Serve the City Paris
+        position: Member and book club co-organizer
+        location: Paris
+        start_date: 2025
+      - company: Pépite PEIPS
+        position: French National Student-Entrepreneur Program
+        location: Paris
+        start_date: 2025
+        end_date: 2026
+      - company: PLUR
+        position: Food deliveries for people experiencing homelessness
+        location: Seoul
+        start_date: 2022
+        end_date: 2023
+      - company: Homeless Helpers
+        position: Organizer and recruiter for food deliveries
+        location: Barcelona
+        start_date: 2020
+        end_date: 2021
+      - company: Clean Beach Initiative
+        position: Beach cleanups and environmental activism
+        location: Barcelona
+        start_date: 2020
+        end_date: 2021

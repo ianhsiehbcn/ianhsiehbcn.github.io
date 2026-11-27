@@ -47,5 +47,5 @@ html[data-theme="dark"] .bio-highlight { color: #ff4fd8; }
 html[data-theme="dark"] .clearfix > p.bio-keywords { color: #a8a8b3; }
 html[data-theme="dark"] .inst-icon.invert-dark { filter: brightness(0) invert(1); }
 .inst-icon { height: 1em; width: 1em; vertical-align: -0.15em; margin-right: 0.3em; object-fit: contain; }
-.clearfix > p { font-size: 1.15rem; line-height: 1.7; }
+.clearfix > p { font-size: 1.15rem; line-height: 1.7; text-align: justify; hyphens: auto; }
 </style>

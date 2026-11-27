@@ -37,10 +37,13 @@ Before pivoting to health AI, I earned a <strong class="bio-highlight">BSc in Ec
 I also took two years away from academia to pursue a personal dream of working as a game designer. [SEED MMO](https://store.steampowered.com/app/2938800/SEED/) is going live this year!
 
 *Keywords of interest: representation learning, cross-modality alignment, optimal transport, foundation models for biology and health, AI for science*
+{: .bio-keywords}
 
 <style>
 .bio-highlight { color: #d6006f; }
 html[data-theme="dark"] .bio-highlight { color: #ff4fd8; }
+.clearfix > p.bio-keywords { color: #6c757d; }
+html[data-theme="dark"] .clearfix > p.bio-keywords { color: #a8a8b3; }
 .inst-icon { height: 1em; width: 1em; vertical-align: -0.15em; margin-right: 0.3em; object-fit: contain; }
 .clearfix > p { font-size: 1.15rem; line-height: 1.7; }
 </style>

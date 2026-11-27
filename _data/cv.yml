@@ -4,7 +4,9 @@ cv:
       - company: Paris Brain Institute and Inria Paris, Aramis Lab
         position: Research Intern
         start_date: 2026-05
-        end_date: 2026-09
+        end_date: 2026-11
+        highlights:
+          - "Supervisors: Reuben Dorent and Tom Vercauteren"
       - company: Klang Games
         position: Game Designer
         start_date: 2023-08
@@ -13,6 +15,8 @@ cv:
         position: Pre-doctoral Researcher
         start_date: 2022-08
         end_date: 2023-07
+        highlights:
+          - "Supervisors: Marleen Marra and Florian Oswald"
       - company: Taiwan
         position: National Service
         start_date: 2021-11
@@ -21,12 +25,16 @@ cv:
         position: Pre-doctoral Researcher
         start_date: 2020-07
         end_date: 2021-10
+        highlights:
+          - "Supervisor: Jan Eeckhout"
 
     Education:
       - institution: ENS Paris-Saclay
         degree: Master 2 Mathematics, Vision, Learning
         start_date: 2025-09
         end_date: 2026-09
+        highlights:
+          - With high honors
       - institution: University of Chicago
         degree: MA Economics and Social Sciences
         start_date: 2019-09
@@ -39,3 +47,46 @@ cv:
         degree: BSc Economics and Mathematics
         start_date: 2015-08
         end_date: 2019-05
+
+    Languages:
+      - name: English
+        summary: C2
+      - name: Mandarin Chinese
+        summary: C2
+      - name: Spanish
+        summary: B1
+      - name: French
+        summary: A2
+      - name: Korean
+        summary: A2
+
+    Engagement:
+      - company: Serve the City Paris
+        position: Member and book club co-organizer
+        location: Paris, France
+        start_date: 2025-01
+      - company: Pépite PEIPS
+        position: National Student-Entrepreneur Program (Statut National Étudiant-Entrepreneur)
+        location: Paris, France
+        start_date: 2025-01
+        end_date: 2026-01
+      - company: PLUR
+        position: Food deliveries for people experiencing homelessness
+        location: Seoul, South Korea
+        start_date: 2022-01
+        end_date: 2023-01
+      - company: Homeless Helpers
+        position: Organizer and recruiter for food deliveries
+        location: Barcelona, Spain
+        start_date: 2020-01
+        end_date: 2021-01
+      - company: Clean Beach Initiative
+        position: Beach cleanups and environmental activism
+        location: Barcelona, Spain
+        start_date: 2020-01
+        end_date: 2021-01
+      - company: LSE Food Cycle Society
+        position: Organizer, food waste and human rights activism
+        location: London, UK
+        start_date: 2017-01
+        end_date: 2018-01

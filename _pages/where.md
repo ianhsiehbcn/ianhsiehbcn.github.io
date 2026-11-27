@@ -340,20 +340,16 @@ nav_order: 4
 
 <style>
   .wi-viz {
-    --t-home: #257de0;
-    --t-study: #f47230;
-    --t-work: #00b894;
-    --t-service: #f2a600;
+    --t-study: #257de0;
+    --t-work: #f47230;
     --ink: var(--global-text-color);
     --muted: var(--global-text-color-light);
     --grid: rgba(128, 128, 128, 0.22);
     margin-top: 2.5rem;
   }
   html[data-theme="dark"] .wi-viz {
-    --t-home: #338ced;
-    --t-study: #e76624;
-    --t-work: #00a888;
-    --t-service: #d28e05;
+    --t-study: #338ced;
+    --t-work: #e76624;
   }
   .wi-viz h2 { font-size: 1.4rem; margin-bottom: 1rem; }
   .wi-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 1.75rem; }
@@ -387,7 +383,7 @@ nav_order: 4
   <div class="wi-stats" id="wi-stats"></div>
   <div class="wi-legend" id="wi-legend"></div>
   <div class="wi-lanes-wrap">
-    <svg class="wi-lanes" id="wi-lanes" role="img" aria-label="Timeline of countries lived in, colored by home, study, work or service"></svg>
+    <svg class="wi-lanes" id="wi-lanes" role="img" aria-label="Timeline of countries lived in, colored by study or work"></svg>
     <div class="wi-tip" id="wi-tip" hidden></div>
   </div>
   <details class="wi-table">
@@ -406,10 +402,8 @@ nav_order: 4
       UK: "Europe", Spain: "Europe", France: "Europe", Germany: "Europe", Italy: "Europe", Switzerland: "Europe", Netherlands: "Europe"
     };
     var TYPES = [
-      { id: "home", label: "Home" },
       { id: "study", label: "Study" },
-      { id: "work", label: "Work" },
-      { id: "service", label: "Service" }
+      { id: "work", label: "Work" }
     ];
     var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var now = new Date();

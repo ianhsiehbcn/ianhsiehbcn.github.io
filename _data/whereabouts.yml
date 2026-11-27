@@ -1,5 +1,5 @@
 # Places over time for the "Where is Ian?" page. Months are inclusive; "end" omitted means present.
-# type: home | study | work | service (drives the stats and the timeline chart).
+# type: study | work (drives the stats and the timeline chart).
 - start: 1997-09
   end: 2006-07
   city: Taichung
@@ -7,7 +7,7 @@
   lat: 24.1477
   lon: 120.6736
   what: Home
-  type: home
+  type: study
 - start: 2006-08
   end: 2007-01
   city: Sydney
@@ -23,7 +23,7 @@
   lat: 24.1477
   lon: 120.6736
   what: Home
-  type: home
+  type: study
 - start: 2013-09
   end: 2015-07
   city: Richmond
@@ -79,7 +79,7 @@
   lat: 24.8138
   lon: 120.9675
   what: National Service
-  type: service
+  type: work
 - start: 2022-08
   end: 2023-07
   city: Paris

@@ -156,9 +156,10 @@ nav_order: 4
 <script>
   (function () {
     var places = {{ site.data.whereabouts | jsonify }};
-    var START = { y: 2012, m: 1 };
+    var first = String(places[0].start).split("-");
+    var START = { y: +first[0], m: +first[1] || 1 };
     var now = new Date();
-    var nowIdx = (now.getFullYear() - START.y) * 12 + now.getMonth();
+    var nowIdx = now.getFullYear() * 12 + now.getMonth() - (START.y * 12 + (START.m - 1));
 
     function key(s) {
       var p = String(s).split("-");
@@ -177,7 +178,6 @@ nav_order: 4
     }
     function label(i) {
       var k = idxKey(i);
-      if (k < 2013 * 12) return "Before 2013";
       return String(Math.floor(k / 12));
     }
 
@@ -253,8 +253,8 @@ nav_order: 4
     slider.value = nowIdx;
 
     var ticks = document.getElementById("wi-ticks");
-    for (var y = 2013; y <= now.getFullYear(); y += 2) {
-      var i = (y - START.y) * 12;
+    for (var y = Math.ceil((START.y + 1) / 5) * 5; y <= now.getFullYear(); y += 5) {
+      var i = y * 12 - (START.y * 12 + (START.m - 1));
       var s = document.createElement("span");
       s.style.left = (100 * i) / nowIdx + "%";
       s.textContent = y;

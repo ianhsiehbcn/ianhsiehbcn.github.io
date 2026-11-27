@@ -1,5 +1,19 @@
 # Places over time for the "Where is Ian?" page. Months are inclusive; "end" omitted means present.
 - start: 1997-09
+  end: 2006-07
+  city: Taichung
+  country: Taiwan
+  lat: 24.1477
+  lon: 120.6736
+  what: Home
+- start: 2006-08
+  end: 2007-01
+  city: Sydney
+  country: Australia
+  lat: -33.8688
+  lon: 151.2093
+  what: 3rd grade
+- start: 2007-02
   end: 2013-08
   city: Taichung
   country: Taiwan

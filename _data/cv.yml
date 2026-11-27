@@ -61,22 +61,17 @@ cv:
         summary: A2
 
     Community Service:
-      - company: Serve the City Paris
-        position: Member and book club co-organizer
+      - position: Serve the City Paris – homeless food delivery
         start_date: 2025
-      - company: Pépite PEIPS
-        position: French National Student-Entrepreneur Program
+      - position: Pépite PEIPS – French National Student-Entrepreneur Program
         start_date: 2025
         end_date: 2026
-      - company: PLUR
-        position: Food deliveries for people experiencing homelessness
+      - position: PLUR, Seoul – homeless food delivery
         start_date: 2022
         end_date: 2023
-      - company: Homeless Helpers
-        position: Organizer and recruiter for food deliveries
+      - position: Homeless Helpers, Barcelona – homeless food delivery
         start_date: 2020
         end_date: 2021
-      - company: Clean Beach Initiative
-        position: Beach cleanups and environmental activism
+      - position: Clean Beach Initiative, Barcelona – beach cleanups and environmental activism
         start_date: 2020
         end_date: 2021

@@ -369,11 +369,13 @@
     --t-work: #e76624;
   }
   .wi-viz h2 { font-size: 1.4rem; margin-bottom: 1rem; }
-  .wi-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 1.75rem; }
-  .wi-stat { border: 1px solid var(--grid); border-radius: 12px; padding: 0.9rem 1rem; }
-  .wi-stat .n { font-size: 2.2rem; font-weight: 700; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; }
-  .wi-stat .l { font-size: 0.9rem; color: var(--muted); margin-top: 0.2rem; }
-  .wi-stat .s { font-size: 0.78rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.35; }
+  .wi-viz h3 { font-size: 1.05rem; margin: 1.75rem 0 0.6rem; }
+  .wi-legend i.line { height: 2px; border-radius: 1px; }
+  .wi-cum-wrap { position: relative; }
+  .wi-lanes .series { fill: none; stroke-width: 2; }
+  .wi-lanes .cross { stroke: var(--muted); stroke-width: 1; }
+  .wi-lanes .dot { stroke: var(--global-bg-color); stroke-width: 2; }
+  .wi-lanes .end-label { font-size: 12px; }
   .wi-legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.5rem; }
   .wi-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
   .wi-legend i { width: 14px; height: 10px; border-radius: 3px; display: inline-block; }
@@ -393,7 +395,7 @@
   .wi-table summary { cursor: pointer; color: var(--muted); }
   .wi-table table { width: 100%; margin-top: 0.5rem; border-collapse: collapse; }
   .wi-table th, .wi-table td { text-align: left; padding: 0.3rem 0.5rem; border-bottom: 1px solid var(--grid); color: var(--ink); }
-</style> <section class="wi-viz" aria-labelledby="wi-viz-title"> <h2 id="wi-viz-title">By the numbers</h2> <div class="wi-stats" id="wi-stats"></div> <div class="wi-legend" id="wi-legend"></div> <div class="wi-lanes-wrap"> <svg class="wi-lanes" id="wi-lanes" role="img" aria-label="Timeline of countries lived in, colored by study or work"></svg> <div class="wi-tip" id="wi-tip" hidden=""></div> </div> <details class="wi-table"> <summary>Show as table</summary> <table id="wi-table"></table> </details> </section> <script>
+</style> <section class="wi-viz" aria-labelledby="wi-viz-title"> <h2 id="wi-viz-title">Countries over time</h2> <h3>Cumulative number of countries</h3> <div class="wi-legend" id="wi-cum-legend"></div> <div class="wi-cum-wrap"> <svg class="wi-lanes" id="wi-cum" role="img" aria-label="Cumulative number of countries lived in, studied in and worked in over time"></svg> <div class="wi-tip" id="wi-cum-tip" hidden=""></div> </div> <h3>Where, and doing what</h3> <div class="wi-legend" id="wi-legend"></div> <div class="wi-lanes-wrap"> <svg class="wi-lanes" id="wi-lanes" role="img" aria-label="Timeline of countries lived in, colored by study or work"></svg> <div class="wi-tip" id="wi-tip" hidden=""></div> </div> <details class="wi-table"> <summary>Show as table</summary> <table id="wi-table"></table> </details> </section> <script>
   (function () {
     var places = [{"start":"1997-09","end":"2006-07","city":"Taichung","country":"Taiwan","lat":24.1477,"lon":120.6736,"what":"Home","type":"study"},{"start":"2006-08","end":"2007-01","city":"Sydney","country":"Australia","lat":-33.8688,"lon":151.2093,"what":"3rd grade","type":"study"},{"start":"2007-02","end":"2013-08","city":"Taichung","country":"Taiwan","lat":24.1477,"lon":120.6736,"what":"Home","type":"study"},{"start":"2013-09","end":"2015-07","city":"Richmond","country":"Canada","lat":49.1666,"lon":-123.1336,"what":"High school (IB)","type":"study"},{"start":"2015-08","end":"2017-08","city":"Tempe","country":"USA","lat":33.4255,"lon":-111.94,"what":"Arizona State University","type":"study"},{"start":"2017-09","end":"2018-07","city":"London","country":"UK","lat":51.5074,"lon":-0.1278,"what":"London School of Economics","type":"study"},{"start":"2018-08","end":"2019-07","city":"Tempe","country":"USA","lat":33.4255,"lon":-111.94,"what":"Arizona State University","type":"study"},{"start":"2019-08","end":"2020-10","city":"Chicago","country":"USA","lat":41.7886,"lon":-87.5987,"what":"University of Chicago","type":"study"},{"start":"2020-11","end":"2021-10","city":"Barcelona","country":"Spain","lat":41.3851,"lon":2.1734,"what":"Barcelona School of Economics","type":"work"},{"start":"2021-11","end":"2022-07","city":"Hsinchu","country":"Taiwan","lat":24.8138,"lon":120.9675,"what":"National Service","type":"work"},{"start":"2022-08","end":"2023-07","city":"Paris","country":"France","lat":48.8566,"lon":2.3522,"what":"Sciences Po","type":"work"},{"start":"2023-08","end":"2025-08","city":"Berlin","country":"Germany","lat":52.52,"lon":13.405,"what":"Klang Games","type":"work"},{"start":"2025-09","end":"2026-04","city":"Paris","country":"France","lat":48.8566,"lon":2.3522,"what":"ENS Paris-Saclay","type":"study"},{"start":"2026-05","city":"Paris","country":"France","lat":48.8566,"lon":2.3522,"what":"Inria","type":"work"}];
     var CONTINENT = {
@@ -419,21 +421,7 @@
       return { p: p, s: s, e: e, months: e - s + 1 };
     });
 
-    // Stat tiles
     var countries = uniq(places.map(function (p) { return p.country; }));
-    var continents = uniq(countries.map(function (c) { return CONTINENT[c] || "Other"; }));
-    var studied = uniq(places.filter(function (p) { return p.type === "study"; }).map(function (p) { return p.country; }));
-    var worked = uniq(places.filter(function (p) { return p.type === "work"; }).map(function (p) { return p.country; }));
-    // 2x2: left column = where lived (countries, continents); right column = studied in, worked in
-    var stats = [
-      { n: countries.length, l: "Countries lived in", s: countries.join(", ") },
-      { n: studied.length, l: "Countries studied in", s: studied.join(", ") },
-      { n: continents.length, l: "Continents", s: continents.join(", ") },
-      { n: worked.length, l: "Countries worked in", s: worked.join(", ") }
-    ];
-    document.getElementById("wi-stats").innerHTML = stats.map(function (t) {
-      return '<div class="wi-stat"><div class="n">' + t.n + '</div><div class="l">' + t.l + '</div><div class="s">' + t.s + "</div></div>";
-    }).join("");
 
     // Legend (always shown, so identity is never color alone)
     document.getElementById("wi-legend").innerHTML = TYPES.map(function (t) {
@@ -441,12 +429,91 @@
     }).join("");
 
     // Swimlane timeline: one row per country, in order of first arrival
-    var W = 900, LABEL = 110, PAD_R = 12, ROW = 30, BAR = 16, TOP = 6, AXIS = 26;
+    var W = 900, LABEL = 110, PAD_R = 90, ROW = 30, BAR = 16, TOP = 6, AXIS = 26;
     var H = TOP + countries.length * ROW + AXIS;
     var x0 = Math.min.apply(null, rows.map(function (r) { return r.s; }));
     var x1 = nowKey + 1;
     function X(k) { return LABEL + ((k - x0) / (x1 - x0)) * (W - LABEL - PAD_R); }
     var svg = d3.select("#wi-lanes").attr("viewBox", "0 0 " + W + " " + H);
+    var yearsC = d3.range(Math.ceil((Math.floor(x0 / 12) + 1) / 5) * 5, now.getFullYear() + 1, 5);
+
+    // Cumulative distinct countries: lived in (union of study and work), studied in, worked in
+    var SERIES = [
+      { id: "lived", label: "Lived in", color: "var(--ink)", test: function () { return true; } },
+      { id: "study", label: "Studied in", color: "var(--t-study)", test: function (p) { return p.type === "study"; } },
+      { id: "work", label: "Worked in", color: "var(--t-work)", test: function (p) { return p.type === "work"; } }
+    ];
+    var byStart = rows.slice().sort(function (a, b) { return a.s - b.s; });
+    SERIES.forEach(function (ser) {
+      var seen = [], pts = [];
+      byStart.forEach(function (r) {
+        if (ser.test(r.p) && seen.indexOf(r.p.country) < 0) {
+          seen.push(r.p.country);
+          pts.push({ k: r.s, v: seen.length, c: r.p.country });
+        }
+      });
+      ser.pts = pts;
+      ser.at = function (k) {
+        var v = 0, list = [];
+        pts.forEach(function (q) { if (q.k <= k) { v = q.v; list.push(q.c); } });
+        return { v: v, list: list };
+      };
+    });
+    var yMax = Math.max(1, SERIES[0].at(nowKey).v);
+    var CH = 230, CT = 10, CB = 26;
+    function Y(v) { return CT + (1 - v / yMax) * (CH - CT - CB); }
+    var cum = d3.select("#wi-cum").attr("viewBox", "0 0 " + W + " " + CH);
+    var cg = cum.append("g").attr("class", "grid");
+    var ca = cum.append("g").attr("class", "axis");
+    for (var v = 0; v <= yMax; v += 2) {
+      cg.append("line").attr("x1", LABEL).attr("x2", X(x1)).attr("y1", Y(v)).attr("y2", Y(v));
+      ca.append("text").attr("x", LABEL - 10).attr("y", Y(v) + 4).attr("text-anchor", "end").text(v);
+    }
+    yearsC.forEach(function (y) {
+      ca.append("text").attr("x", X(y * 12)).attr("y", CH - 6).attr("text-anchor", "middle").text(y);
+    });
+    // Draw the total ("Lived in") last so it stays visible where it coincides with "Studied in"
+    SERIES.slice().reverse().forEach(function (ser) {
+      var line = [{ k: x0, v: 0 }].concat(ser.pts).concat([{ k: x1, v: ser.at(nowKey).v }]);
+      cum.append("path").attr("class", "series").style("stroke", ser.color)
+        .attr("d", d3.line().curve(d3.curveStepAfter).x(function (d) { return X(d.k); }).y(function (d) { return Y(d.v); })(line));
+      cum.append("text").attr("class", "end-label").attr("x", X(x1) + 8).attr("y", Y(ser.at(nowKey).v) + 4)
+        .text(ser.label + " " + ser.at(nowKey).v);
+    });
+    document.getElementById("wi-cum-legend").innerHTML = SERIES.map(function (ser) {
+      return '<span><i class="line" style="background: ' + ser.color + '"></i>' + ser.label + "</span>";
+    }).join("");
+
+    // Hover: crosshair + tooltip with all three counts
+    var cross = cum.append("line").attr("class", "cross").attr("y1", CT).attr("y2", CH - CB).style("display", "none");
+    var dots = SERIES.map(function (ser) {
+      return cum.append("circle").attr("class", "dot").attr("r", 4.5).style("fill", ser.color).style("display", "none");
+    });
+    var ctip = document.getElementById("wi-cum-tip");
+    var cwrap = document.querySelector(".wi-cum-wrap");
+    cum.append("rect").attr("x", LABEL).attr("y", 0).attr("width", X(x1) - LABEL).attr("height", CH - CB).style("fill", "transparent")
+      .on("mousemove", function (evt) {
+        var mx = d3.pointer(evt, cum.node())[0];
+        var k = Math.max(x0, Math.min(nowKey, Math.floor(x0 + ((mx - LABEL) / (X(x1) - LABEL)) * (x1 - x0))));
+        var px = X(k + 0.5);
+        cross.attr("x1", px).attr("x2", px).style("display", null);
+        var html = "<b>" + fmt(k) + "</b>";
+        SERIES.forEach(function (ser, i) {
+          var a = ser.at(k);
+          dots[i].attr("cx", px).attr("cy", Y(a.v)).style("display", null);
+          html += ser.label + ": " + a.v + (a.list.length ? " (" + a.list.join(", ") + ")" : "") + "<br>";
+        });
+        ctip.innerHTML = html;
+        var box = cwrap.getBoundingClientRect();
+        ctip.style.left = Math.min(Math.max(evt.clientX - box.left, 160), box.width - 160) + "px";
+        ctip.style.top = (CT / CH) * box.height + "px";
+        ctip.hidden = false;
+      })
+      .on("mouseleave", function () {
+        cross.style("display", "none");
+        dots.forEach(function (d) { d.style("display", "none"); });
+        ctip.hidden = true;
+      });
 
     var firstYear = Math.ceil((Math.floor(x0 / 12) + 1) / 5) * 5;
     var years = d3.range(firstYear, now.getFullYear() + 1, 5);

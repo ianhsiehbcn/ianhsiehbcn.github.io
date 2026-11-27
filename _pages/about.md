@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Machine Learning & Medical Imaging
+subtitle: Representation learning, cross-modality alignment, optimal transport, foundation models for biology and health, AI for science
 
 profile:
   align: right

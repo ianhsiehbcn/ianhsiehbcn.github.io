@@ -2,8 +2,9 @@ cv:
   sections:
     Experience:
       - company: Paris Brain Institute and Inria, Aramis Lab
-        position: Master's Thesis Research Intern
+        position: Research Intern
         start_date: 2026-05
+        end_date: 2026-09
       - company: Klang Games
         position: Game Designer
         start_date: 2023-08
@@ -23,7 +24,7 @@ cv:
 
     Education:
       - institution: ENS Paris-Saclay
-        degree: M2 Mathematics, Vision, Learning
+        degree: Master 2 Mathematics, Vision, Learning
         start_date: 2025-09
         end_date: 2026-09
       - institution: University of Chicago

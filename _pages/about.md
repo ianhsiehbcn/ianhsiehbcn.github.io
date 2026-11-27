@@ -9,7 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>ian-yee-yang.hsieh@inria.fr</p>
+    <p class="photo-caption">Outside work, I spend most of my time on food, movies, and all kinds of sports.</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -44,5 +44,7 @@ I also took two years away from academia to pursue a personal dream of working a
 html[data-theme="dark"] .clearfix > p.bio-keywords, html[data-theme="dark"] .clearfix > p.bio-keywords em { color: #a8a8b3; }
 html[data-theme="dark"] .inst-icon.invert-dark { filter: brightness(0) invert(1); }
 .inst-icon { height: 1em; width: 1em; vertical-align: -0.15em; margin-right: 0.3em; object-fit: contain; }
+.more-info p.photo-caption { font-family: "Inter", "Space Grotesk", sans-serif !important; font-style: italic; font-size: 0.9rem; line-height: 1.4; text-align: left; }
+.clearfix > p.bio-keywords { clear: both; text-align: left; }
 .clearfix > p { font-size: 1.15rem; line-height: 1.7; text-align: justify; hyphens: auto; }
 </style>

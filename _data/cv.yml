@@ -6,7 +6,7 @@ cv:
         start_date: 2026-05
         end_date: 2026-11
         highlights:
-          - "Supervisors: Reuben Dorent and Tom Vercauteren"
+          - "Supervisors: [Reuben Dorent](https://reuben.dorent.fr/) and [Tom Vercauteren](https://cai4cai.ml/author/tom-vercauteren/)"
       - company: Klang Games
         position: Game Designer
         start_date: 2023-08
@@ -16,7 +16,7 @@ cv:
         start_date: 2022-08
         end_date: 2023-07
         highlights:
-          - "Supervisors: Marleen Marra and Florian Oswald"
+          - "Supervisors: [Marleen Marra](https://www.marleenmarra.nl/) and [Florian Oswald](https://floswald.github.io/)"
       - company: Taiwan
         position: National Service
         start_date: 2021-11
@@ -26,7 +26,7 @@ cv:
         start_date: 2020-07
         end_date: 2021-10
         highlights:
-          - "Supervisor: Jan Eeckhout"
+          - "Supervisor: [Jan Eeckhout](https://www.janeeckhout.com/)"
 
     Education:
       - institution: ENS Paris-Saclay
@@ -63,25 +63,20 @@ cv:
     Community Service:
       - company: Serve the City Paris
         position: Member and book club co-organizer
-        location: Paris
         start_date: 2025
       - company: Pépite PEIPS
         position: French National Student-Entrepreneur Program
-        location: Paris
         start_date: 2025
         end_date: 2026
       - company: PLUR
         position: Food deliveries for people experiencing homelessness
-        location: Seoul
         start_date: 2022
         end_date: 2023
       - company: Homeless Helpers
         position: Organizer and recruiter for food deliveries
-        location: Barcelona
         start_date: 2020
         end_date: 2021
       - company: Clean Beach Initiative
         position: Beach cleanups and environmental activism
-        location: Barcelona
         start_date: 2020
         end_date: 2021

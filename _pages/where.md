@@ -337,3 +337,166 @@ nav_order: 4
     });
   })();
 </script>
+
+<style>
+  .wi-viz {
+    --t-home: #257de0;
+    --t-study: #f47230;
+    --t-work: #00b894;
+    --t-service: #f2a600;
+    --ink: var(--global-text-color);
+    --muted: var(--global-text-color-light);
+    --grid: rgba(128, 128, 128, 0.22);
+    margin-top: 2.5rem;
+  }
+  html[data-theme="dark"] .wi-viz {
+    --t-home: #338ced;
+    --t-study: #e76624;
+    --t-work: #00a888;
+    --t-service: #d28e05;
+  }
+  .wi-viz h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+  .wi-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 1.75rem; }
+  .wi-stat { border: 1px solid var(--grid); border-radius: 12px; padding: 0.9rem 1rem; }
+  .wi-stat .n { font-size: 2.2rem; font-weight: 700; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .wi-stat .l { font-size: 0.9rem; color: var(--muted); margin-top: 0.2rem; }
+  .wi-stat .s { font-size: 0.78rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.35; }
+  @media (max-width: 640px) { .wi-stats { grid-template-columns: repeat(2, 1fr); } }
+  .wi-legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .wi-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .wi-legend i { width: 14px; height: 10px; border-radius: 3px; display: inline-block; }
+  .wi-lanes-wrap { position: relative; }
+  .wi-lanes { width: 100%; height: auto; display: block; }
+  .wi-lanes text { fill: var(--ink); font-size: 13px; }
+  .wi-lanes .axis text { fill: var(--muted); font-size: 12px; }
+  .wi-lanes .grid line { stroke: var(--grid); }
+  .wi-lanes rect.bar:hover, .wi-lanes rect.bar:focus { stroke: var(--ink); stroke-width: 1.5; outline: none; }
+  .wi-tip {
+    position: absolute; pointer-events: none; background: var(--global-bg-color); color: var(--ink);
+    border: 1px solid var(--grid); border-radius: 8px; padding: 0.45rem 0.6rem; font-size: 0.85rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18); white-space: nowrap; transform: translate(-50%, -110%);
+  }
+  .wi-tip b { display: block; }
+  .wi-table { margin-top: 1rem; font-size: 0.9rem; }
+  .wi-table summary { cursor: pointer; color: var(--muted); }
+  .wi-table table { width: 100%; margin-top: 0.5rem; border-collapse: collapse; }
+  .wi-table th, .wi-table td { text-align: left; padding: 0.3rem 0.5rem; border-bottom: 1px solid var(--grid); color: var(--ink); }
+</style>
+
+<section class="wi-viz" aria-labelledby="wi-viz-title">
+  <h2 id="wi-viz-title">By the numbers</h2>
+  <div class="wi-stats" id="wi-stats"></div>
+  <div class="wi-legend" id="wi-legend"></div>
+  <div class="wi-lanes-wrap">
+    <svg class="wi-lanes" id="wi-lanes" role="img" aria-label="Timeline of countries lived in, colored by home, study, work or service"></svg>
+    <div class="wi-tip" id="wi-tip" hidden></div>
+  </div>
+  <details class="wi-table">
+    <summary>Show as table</summary>
+    <table id="wi-table"></table>
+  </details>
+</section>
+
+<script>
+  (function () {
+    var places = {{ site.data.whereabouts | jsonify }};
+    var CONTINENT = {
+      Taiwan: "Asia", "South Korea": "Asia", Japan: "Asia", China: "Asia",
+      Australia: "Oceania", "New Zealand": "Oceania",
+      Canada: "North America", USA: "North America", Mexico: "North America",
+      UK: "Europe", Spain: "Europe", France: "Europe", Germany: "Europe", Italy: "Europe", Switzerland: "Europe", Netherlands: "Europe"
+    };
+    var TYPES = [
+      { id: "home", label: "Home" },
+      { id: "study", label: "Study" },
+      { id: "work", label: "Work" },
+      { id: "service", label: "Service" }
+    ];
+    var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var now = new Date();
+    var nowKey = now.getFullYear() * 12 + now.getMonth();
+    function key(s) { var p = String(s).split("-"); return +p[0] * 12 + (+p[1] - 1); }
+    function fmt(k) { return MONTHS[k % 12] + " " + Math.floor(k / 12); }
+    function uniq(a) { return a.filter(function (v, i) { return a.indexOf(v) === i; }); }
+    function typeLabel(id) { var t = TYPES.filter(function (t) { return t.id === id; })[0]; return t ? t.label : ""; }
+
+    var rows = places.map(function (p) {
+      var s = key(p.start), e = p.end ? key(p.end) : nowKey;
+      return { p: p, s: s, e: e, months: e - s + 1 };
+    });
+
+    // Stat tiles
+    var countries = uniq(places.map(function (p) { return p.country; }));
+    var continents = uniq(countries.map(function (c) { return CONTINENT[c] || "Other"; }));
+    var studied = uniq(places.filter(function (p) { return p.type === "study"; }).map(function (p) { return p.country; }));
+    var worked = uniq(places.filter(function (p) { return p.type === "work"; }).map(function (p) { return p.country; }));
+    var stats = [
+      { n: countries.length, l: "Countries lived in", s: countries.join(", ") },
+      { n: continents.length, l: "Continents", s: continents.join(", ") },
+      { n: studied.length, l: "Countries studied in", s: studied.join(", ") },
+      { n: worked.length, l: "Countries worked in", s: worked.join(", ") }
+    ];
+    document.getElementById("wi-stats").innerHTML = stats.map(function (t) {
+      return '<div class="wi-stat"><div class="n">' + t.n + '</div><div class="l">' + t.l + '</div><div class="s">' + t.s + "</div></div>";
+    }).join("");
+
+    // Legend (always shown, so identity is never color alone)
+    document.getElementById("wi-legend").innerHTML = TYPES.map(function (t) {
+      return '<span><i style="background: var(--t-' + t.id + ')"></i>' + t.label + "</span>";
+    }).join("");
+
+    // Swimlane timeline: one row per country, in order of first arrival
+    var W = 900, LABEL = 110, PAD_R = 12, ROW = 30, BAR = 16, TOP = 6, AXIS = 26;
+    var H = TOP + countries.length * ROW + AXIS;
+    var x0 = Math.min.apply(null, rows.map(function (r) { return r.s; }));
+    var x1 = nowKey + 1;
+    function X(k) { return LABEL + ((k - x0) / (x1 - x0)) * (W - LABEL - PAD_R); }
+    var svg = d3.select("#wi-lanes").attr("viewBox", "0 0 " + W + " " + H);
+
+    var firstYear = Math.ceil((Math.floor(x0 / 12) + 1) / 5) * 5;
+    var years = d3.range(firstYear, now.getFullYear() + 1, 5);
+    var grid = svg.append("g").attr("class", "grid");
+    var axis = svg.append("g").attr("class", "axis");
+    years.forEach(function (y) {
+      grid.append("line").attr("x1", X(y * 12)).attr("x2", X(y * 12)).attr("y1", TOP).attr("y2", TOP + countries.length * ROW);
+      axis.append("text").attr("x", X(y * 12)).attr("y", H - 6).attr("text-anchor", "middle").text(y);
+    });
+    countries.forEach(function (c, i) {
+      svg.append("text").attr("x", 0).attr("y", TOP + i * ROW + ROW / 2 + 4).text(c);
+    });
+
+    var tip = document.getElementById("wi-tip");
+    var wrap = document.querySelector(".wi-lanes-wrap");
+    function showTip(evt, r) {
+      var dur = r.months >= 12 ? (r.months / 12).toFixed(1).replace(/\.0$/, "") + " yr" : r.months + " mo";
+      tip.innerHTML = "<b>" + r.p.city + ", " + r.p.country + "</b>" + r.p.what + " &middot; " + typeLabel(r.p.type) +
+        "<br>" + fmt(r.s) + " &ndash; " + (r.p.end ? fmt(r.e) : "present") + " (" + dur + ")";
+      var box = wrap.getBoundingClientRect(), mb = evt.target.getBoundingClientRect();
+      tip.style.left = mb.left + mb.width / 2 - box.left + "px";
+      tip.style.top = mb.top - box.top + "px";
+      tip.hidden = false;
+    }
+    svg.append("g").selectAll("rect").data(rows).enter().append("rect")
+      .attr("class", "bar")
+      .attr("tabindex", 0)
+      .attr("x", function (r) { return X(r.s) + 1; })
+      .attr("width", function (r) { return Math.max(3, X(r.e + 1) - X(r.s) - 2); })
+      .attr("y", function (r) { return TOP + countries.indexOf(r.p.country) * ROW + (ROW - BAR) / 2; })
+      .attr("height", BAR)
+      .attr("rx", 4)
+      .style("fill", function (r) { return "var(--t-" + r.p.type + ")"; })
+      .attr("aria-label", function (r) { return r.p.city + ", " + r.p.country + ": " + r.p.what + ", " + fmt(r.s) + " to " + (r.p.end ? fmt(r.e) : "present"); })
+      .on("mouseenter", function (evt, r) { showTip(evt, r); })
+      .on("focus", function (evt, r) { showTip(evt, r); })
+      .on("mouseleave", function () { tip.hidden = true; })
+      .on("blur", function () { tip.hidden = true; });
+
+    // Table view
+    document.getElementById("wi-table").innerHTML =
+      "<thead><tr><th>From</th><th>To</th><th>City</th><th>Country</th><th>What</th><th>Type</th></tr></thead><tbody>" +
+      rows.map(function (r) {
+        return "<tr><td>" + fmt(r.s) + "</td><td>" + (r.p.end ? fmt(r.e) : "present") + "</td><td>" + r.p.city + "</td><td>" +
+          r.p.country + "</td><td>" + r.p.what + "</td><td>" + typeLabel(r.p.type) + "</td></tr>";
+      }).join("") + "</tbody>";
+  })();
+</script>

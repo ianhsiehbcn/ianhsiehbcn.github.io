@@ -7,7 +7,7 @@ first_name: Ian
 middle_name: ""
 last_name: Hsieh
 contact_note: >
-  Feel free to reach out at <a href="mailto:ian-yee-yang.hsieh@inria.fr">ian-yee-yang.hsieh@inria.fr</a> for collaborations, questions about my work, or anything else.
+  Feel free to reach out by email for collaborations, questions about my work, or anything else.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Personal academic page. Research in AI/ML and medical imaging.
 footer_text:

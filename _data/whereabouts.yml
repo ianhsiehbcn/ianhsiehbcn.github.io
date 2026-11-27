@@ -1,4 +1,5 @@
 # Places over time for the "Where is Ian?" page. Months are inclusive; "end" omitted means present.
+# type: home | study | work | service (drives the stats and the timeline chart).
 - start: 1997-09
   end: 2006-07
   city: Taichung
@@ -6,6 +7,7 @@
   lat: 24.1477
   lon: 120.6736
   what: Home
+  type: home
 - start: 2006-08
   end: 2007-01
   city: Sydney
@@ -13,6 +15,7 @@
   lat: -33.8688
   lon: 151.2093
   what: 3rd grade
+  type: study
 - start: 2007-02
   end: 2013-08
   city: Taichung
@@ -20,6 +23,7 @@
   lat: 24.1477
   lon: 120.6736
   what: Home
+  type: home
 - start: 2013-09
   end: 2015-07
   city: Richmond
@@ -27,6 +31,7 @@
   lat: 49.1666
   lon: -123.1336
   what: High school (IB)
+  type: study
 - start: 2015-08
   end: 2017-08
   city: Tempe
@@ -34,6 +39,7 @@
   lat: 33.4255
   lon: -111.94
   what: Arizona State University
+  type: study
 - start: 2017-09
   end: 2018-07
   city: London
@@ -41,6 +47,7 @@
   lat: 51.5074
   lon: -0.1278
   what: London School of Economics
+  type: study
 - start: 2018-08
   end: 2019-07
   city: Tempe
@@ -48,6 +55,7 @@
   lat: 33.4255
   lon: -111.94
   what: Arizona State University
+  type: study
 - start: 2019-08
   end: 2020-10
   city: Chicago
@@ -55,6 +63,7 @@
   lat: 41.7886
   lon: -87.5987
   what: University of Chicago
+  type: study
 - start: 2020-11
   end: 2021-10
   city: Barcelona
@@ -62,6 +71,7 @@
   lat: 41.3851
   lon: 2.1734
   what: Barcelona School of Economics
+  type: work
 - start: 2021-11
   end: 2022-07
   city: Hsinchu
@@ -69,6 +79,7 @@
   lat: 24.8138
   lon: 120.9675
   what: National Service
+  type: service
 - start: 2022-08
   end: 2023-07
   city: Paris
@@ -76,6 +87,7 @@
   lat: 48.8566
   lon: 2.3522
   what: Sciences Po
+  type: work
 - start: 2023-08
   end: 2025-08
   city: Berlin
@@ -83,6 +95,7 @@
   lat: 52.52
   lon: 13.405
   what: Klang Games
+  type: work
 - start: 2025-09
   end: 2026-04
   city: Paris
@@ -90,9 +103,11 @@
   lat: 48.8566
   lon: 2.3522
   what: ENS Paris-Saclay
+  type: study
 - start: 2026-05
   city: Paris
   country: France
   lat: 48.8566
   lon: 2.3522
   what: Inria
+  type: work

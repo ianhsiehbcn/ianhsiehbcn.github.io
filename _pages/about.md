@@ -28,9 +28,9 @@ latest_posts:
 {% include custom-fonts.html %}
 {% include theme-toggle.html %}
 
-I am an <strong class="bio-highlight">incoming R&D engineer</strong> in the <img src="/assets/img/logos/aramis-lab.png" alt="" class="inst-icon">[Aramis Lab](https://www.aramislab.fr/) at <img src="/assets/img/logos/inria.png" alt="" class="inst-icon">Inria Paris and the <img src="/assets/img/logos/icm.png" alt="" class="inst-icon">[Paris Brain Institute](https://parisbraininstitute.org/), affiliated with Sorbonne Université.
+I am an <strong class="bio-highlight">incoming R&D engineer</strong> in the <img src="/assets/img/logos/aramis-lab.png" alt="" class="inst-icon">[Aramis Lab](https://www.aramislab.fr/) at <img src="/assets/img/logos/inria.png" alt="" class="inst-icon">[Inria Paris](https://www.inria.fr/en/inria-paris-centre) and the <img src="/assets/img/logos/icm.png" alt="" class="inst-icon">[Paris Brain Institute](https://parisbraininstitute.org/), affiliated with <img src="/assets/img/logos/sorbonne.png" alt="" class="inst-icon">Sorbonne Université.
 
-I recently graduated from the <strong class="bio-highlight">Master 2</strong> in [Mathematics, Vision, Learning](https://www.master-mva.com/) (MVA) at <img src="/assets/img/logos/ens-paris-saclay.png" alt="" class="inst-icon">ENS Paris-Saclay, and completed a <strong class="bio-highlight">research internship</strong> in the same lab on <strong class="bio-highlight">Sparse Optimal Transport for Large-Scale Datasets</strong>, supervised by [Reuben Dorent](https://reuben.dorent.fr/) (Inria) and [Tom Vercauteren](https://cai4cai.ml/author/tom-vercauteren/) (<img src="/assets/img/logos/kcl.png" alt="" class="inst-icon">King's College London).
+I recently graduated from the <strong class="bio-highlight">Master 2 in [Mathematics, Vision, Learning](https://www.master-mva.com/) (MVA)</strong> at <img src="/assets/img/logos/ens-paris-saclay.png" alt="" class="inst-icon">ENS Paris-Saclay, and completed a <strong class="bio-highlight">research internship</strong> in the same lab on <strong class="bio-highlight">Sparse Optimal Transport for Large-Scale Datasets</strong>, supervised by [Reuben Dorent](https://reuben.dorent.fr/) (Inria) and [Tom Vercauteren](https://cai4cai.ml/author/tom-vercauteren/) (<img src="/assets/img/logos/kcl.png" alt="" class="inst-icon">King's College London).
 
 Before pivoting to health AI, I earned a <strong class="bio-highlight">BSc in Economics and Mathematics</strong> from <img src="/assets/img/logos/asu.png" alt="" class="inst-icon">Arizona State University and an <strong class="bio-highlight">MA in Economics and Social Sciences</strong> from the <img src="/assets/img/logos/uchicago.png" alt="" class="inst-icon">University of Chicago, followed by pre-doctoral research fellowships at <img src="/assets/img/logos/upf.png" alt="" class="inst-icon">Pompeu Fabra University and the Barcelona School of Economics, and at <img src="/assets/img/logos/sciencespo.png" alt="" class="inst-icon">Sciences Po Paris.
 
@@ -42,6 +42,7 @@ I also took two years away from academia to pursue a personal dream of working a
 <style>
 .bio-highlight { color: #d6006f; }
 html[data-theme="dark"] .bio-highlight { color: #ff4fd8; }
+.bio-highlight a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .clearfix > p.bio-keywords { color: #6c757d; }
 html[data-theme="dark"] .clearfix > p.bio-keywords { color: #a8a8b3; }
 .inst-icon { height: 1em; width: 1em; vertical-align: -0.15em; margin-right: 0.3em; object-fit: contain; }

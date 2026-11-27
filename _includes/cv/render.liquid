@@ -1,6 +1,7 @@
 {% comment %}
   SITE OVERRIDE of al_folio_cv 1.0.2 templates/cv/render.liquid: adds a 'Community Service' section
-  rendered with the experience layout, and renders Languages on one line. Re-sync with the gem when upgrading al_folio_cv.
+  rendered with the experience layout, renders Languages on one line, and renders
+  sections in cv.yml order (Experience is no longer forced first). Re-sync with the gem when upgrading al_folio_cv.
 {% endcomment %}
 {% comment %}
   Unified CV layout that handles both RenderCV (YAML) and JSONResume (JSON) formats
@@ -127,24 +128,26 @@
         {% assign exp = cv.sections.Experience | default: empty_array %}
         {% assign vol = cv.sections.Volunteer | default: empty_array %}
         {% assign combined_experience = exp | concat: vol | al_cv_sort_by_date %}
-        {% if combined_experience.size > 0 %}
-          <a class="anchor" id="experience"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">Experience</h3>
-            <div>
-              {% assign entries = combined_experience %}
-              {% include cv/experience.liquid %}
-            </div>
-          </div>
-        {% endif %}
-
-        {% comment %} Now render all other sections except Experience and Volunteer {% endcomment %}
+        {% comment %} Site override: Experience is rendered inside the loop below, so sections follow cv.yml order {% endcomment %}
         {% for section_pair in cv.sections %}
           {% assign section_title = section_pair[0] %}
           {% assign section_entries = section_pair[1] %}
 
           {% comment %} Skip Experience and Volunteer as we've already processed them combined {% endcomment %}
-          {% if section_title == 'Experience' or section_title == 'Volunteer' %}
+          {% if section_title == 'Volunteer' %}
+            {% continue %}
+          {% endif %}
+          {% if section_title == 'Experience' %}
+            {% if combined_experience.size > 0 %}
+              <a class="anchor" id="experience"></a>
+              <div class="card mt-3 p-3">
+                <h3 class="card-title font-weight-medium">Experience</h3>
+                <div>
+                  {% assign entries = combined_experience %}
+                  {% include cv/experience.liquid %}
+                </div>
+              </div>
+            {% endif %}
             {% continue %}
           {% endif %}
 

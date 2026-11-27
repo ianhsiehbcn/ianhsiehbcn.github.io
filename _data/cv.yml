@@ -1,5 +1,27 @@
 cv:
   sections:
+    Education:
+      - institution: ENS Paris-Saclay
+        degree: Master 2 Mathematics, Vision, Learning
+        start_date: 2025-09
+        end_date: 2026-09
+        highlights:
+          - "Thesis title: Efficient Optimal Transport Approximations for Longitudinal and Multimodal Medical Image Translation"
+          - "Supervisors: [Reuben Dorent](https://reuben.dorent.fr/) and [Tom Vercauteren](https://cai4cai.ml/author/tom-vercauteren/)"
+          - "Merit: High Honors"
+      - institution: University of Chicago
+        degree: MA Economics and Social Sciences
+        start_date: 2019-09
+        end_date: 2020-12
+      - institution: London School of Economics
+        degree: Exchange Year
+        start_date: 2017-09
+        end_date: 2018-06
+      - institution: Arizona State University
+        degree: BSc Economics and Mathematics
+        start_date: 2015-08
+        end_date: 2019-05
+
     Experience:
       - company: Paris Brain Institute and Inria Paris, Aramis Lab
         position: Research Intern
@@ -27,28 +49,6 @@ cv:
         end_date: 2021-10
         highlights:
           - "Supervisor: [Jan Eeckhout](https://www.janeeckhout.com/)"
-
-    Education:
-      - institution: ENS Paris-Saclay
-        degree: Master 2 Mathematics, Vision, Learning
-        start_date: 2025-09
-        end_date: 2026-09
-        highlights:
-          - "Thesis title: Efficient Optimal Transport Approximations for Longitudinal and Multimodal Medical Image Translation"
-          - "Supervisors: [Reuben Dorent](https://reuben.dorent.fr/) and [Tom Vercauteren](https://cai4cai.ml/author/tom-vercauteren/)"
-          - "Merit: High Honors"
-      - institution: University of Chicago
-        degree: MA Economics and Social Sciences
-        start_date: 2019-09
-        end_date: 2020-12
-      - institution: London School of Economics
-        degree: Exchange Year
-        start_date: 2017-09
-        end_date: 2018-06
-      - institution: Arizona State University
-        degree: BSc Economics and Mathematics
-        start_date: 2015-08
-        end_date: 2019-05
 
     Languages:
       - name: English

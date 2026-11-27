@@ -28,11 +28,11 @@ latest_posts:
 {% include custom-fonts.html %}
 {% include theme-toggle.html %}
 
-I am an <strong class="bio-highlight">incoming R&D engineer</strong> in the <img src="/assets/img/logos/aramis-lab.png" alt="" class="inst-icon">[Aramis Lab](https://www.aramislab.fr/) at <img src="/assets/img/logos/inria.png" alt="" class="inst-icon">[Inria Paris](https://www.inria.fr/en/inria-paris-centre) and the <img src="/assets/img/logos/icm.png" alt="" class="inst-icon">[Paris Brain Institute](https://parisbraininstitute.org/), affiliated with <img src="/assets/img/logos/sorbonne.png" alt="" class="inst-icon invert-dark">Sorbonne Université.
+I am an <strong>incoming R&D engineer</strong> in the <img src="/assets/img/logos/aramis-lab.png" alt="" class="inst-icon">[Aramis Lab](https://www.aramislab.fr/) at <img src="/assets/img/logos/inria.png" alt="" class="inst-icon">[Inria Paris](https://www.inria.fr/en/inria-paris-centre) and the <img src="/assets/img/logos/icm.png" alt="" class="inst-icon">[Paris Brain Institute](https://parisbraininstitute.org/), affiliated with <img src="/assets/img/logos/sorbonne.png" alt="" class="inst-icon invert-dark">Sorbonne Université.
 
-I recently graduated from the <strong class="bio-highlight">Master 2 in [Mathematics, Vision, Learning](https://www.master-mva.com/) (MVA)</strong> at <img src="/assets/img/logos/ens-paris-saclay.png" alt="" class="inst-icon">ENS Paris-Saclay, and completed a <strong class="bio-highlight">6-month research internship</strong> in the same lab on <strong class="bio-highlight">Sparse Optimal Transport for Large-Scale Datasets</strong>, supervised by [Reuben Dorent](https://reuben.dorent.fr/) (Aramis) and [Tom Vercauteren](https://cai4cai.ml/author/tom-vercauteren/) (<img src="/assets/img/logos/kcl.png" alt="" class="inst-icon">King's College London).
+I recently graduated from the <strong>Master 2 in [Mathematics, Vision, Learning](https://www.master-mva.com/) (MVA)</strong> at <img src="/assets/img/logos/ens-paris-saclay.png" alt="" class="inst-icon">ENS Paris-Saclay, and completed a <strong>6-month research internship</strong> in the same lab on <strong>Sparse Optimal Transport for Large-Scale Datasets</strong>, supervised by [Reuben Dorent](https://reuben.dorent.fr/) (Aramis) and [Tom Vercauteren](https://cai4cai.ml/author/tom-vercauteren/) (<img src="/assets/img/logos/kcl.png" alt="" class="inst-icon">King's College London).
 
-Before pivoting to health AI, I earned a <strong class="bio-highlight">BSc in Economics and Mathematics</strong> from <img src="/assets/img/logos/asu.png" alt="" class="inst-icon">Arizona State University and an <strong class="bio-highlight">MA in Economics and Social Sciences</strong> from the <img src="/assets/img/logos/uchicago.png" alt="" class="inst-icon">University of Chicago, followed by pre-doctoral research fellowships at <img src="/assets/img/logos/upf.png" alt="" class="inst-icon">Pompeu Fabra University and the Barcelona School of Economics, and at <img src="/assets/img/logos/sciencespo.png" alt="" class="inst-icon">Sciences Po Paris.
+Before pivoting to health AI, I earned a <strong>BSc in Economics and Mathematics</strong> from <img src="/assets/img/logos/asu.png" alt="" class="inst-icon">Arizona State University and an <strong>MA in Economics and Social Sciences</strong> from the <img src="/assets/img/logos/uchicago.png" alt="" class="inst-icon">University of Chicago, followed by pre-doctoral research fellowships at <img src="/assets/img/logos/upf.png" alt="" class="inst-icon">Pompeu Fabra University and the Barcelona School of Economics, and at <img src="/assets/img/logos/sciencespo.png" alt="" class="inst-icon">Sciences Po Paris.
 
 I also took two years away from academia to pursue a personal dream of working as a game designer. <img src="/assets/img/logos/seed.jpg" alt="" class="inst-icon" style="border-radius: 3px;">[SEED MMO](https://store.steampowered.com/app/2938800/SEED/) is going live this year!
 
@@ -40,11 +40,8 @@ I also took two years away from academia to pursue a personal dream of working a
 {: .bio-keywords}
 
 <style>
-.bio-highlight { color: #d6006f; }
-html[data-theme="dark"] .bio-highlight { color: #ff4fd8; }
-.bio-highlight a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
-.clearfix > p.bio-keywords { color: #6c757d; }
-html[data-theme="dark"] .clearfix > p.bio-keywords { color: #a8a8b3; }
+.clearfix > p.bio-keywords, .clearfix > p.bio-keywords em { color: #6c757d; }
+html[data-theme="dark"] .clearfix > p.bio-keywords, html[data-theme="dark"] .clearfix > p.bio-keywords em { color: #a8a8b3; }
 html[data-theme="dark"] .inst-icon.invert-dark { filter: brightness(0) invert(1); }
 .inst-icon { height: 1em; width: 1em; vertical-align: -0.15em; margin-right: 0.3em; object-fit: contain; }
 .clearfix > p { font-size: 1.15rem; line-height: 1.7; text-align: justify; hyphens: auto; }

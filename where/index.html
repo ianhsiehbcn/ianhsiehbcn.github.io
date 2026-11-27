@@ -174,7 +174,7 @@
   }
 </style> <div class="wi-panel"> <div class="wi-head"> <span class="wi-date" id="wi-date"></span> <div class="wi-city" id="wi-city"></div> <div class="wi-what" id="wi-what"></div> </div> <div class="wi-globe-wrap"> <svg class="wi-globe" id="wi-globe" viewbox="0 0 460 460" role="img" aria-label="Globe showing where Ian was"></svg> <div class="wi-zoom"> <button type="button" id="wi-zoom-in" aria-label="Zoom in">+</button> <button type="button" id="wi-zoom-out" aria-label="Zoom out">−</button> </div> </div> <div class="wi-slider-wrap"> <input class="wi-slider" id="wi-slider" type="range" min="0" step="1" aria-label="Date"> <div class="wi-ticks" id="wi-ticks"></div> </div> </div> <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script> <script>
   (function () {
-    var places = [{"start":"1997-09","end":"2006-07","city":"Taichung","country":"Taiwan","lat":24.1477,"lon":120.6736,"what":"Home"},{"start":"2006-08","end":"2007-01","city":"Sydney","country":"Australia","lat":-33.8688,"lon":151.2093,"what":"3rd grade"},{"start":"2007-02","end":"2013-08","city":"Taichung","country":"Taiwan","lat":24.1477,"lon":120.6736,"what":"Home"},{"start":"2013-09","end":"2015-07","city":"Richmond","country":"Canada","lat":49.1666,"lon":-123.1336,"what":"High school (IB)"},{"start":"2015-08","end":"2017-08","city":"Tempe","country":"USA","lat":33.4255,"lon":-111.94,"what":"Arizona State University"},{"start":"2017-09","end":"2018-07","city":"London","country":"UK","lat":51.5074,"lon":-0.1278,"what":"London School of Economics"},{"start":"2018-08","end":"2019-07","city":"Tempe","country":"USA","lat":33.4255,"lon":-111.94,"what":"Arizona State University"},{"start":"2019-08","end":"2020-10","city":"Chicago","country":"USA","lat":41.7886,"lon":-87.5987,"what":"University of Chicago"},{"start":"2020-11","end":"2021-10","city":"Barcelona","country":"Spain","lat":41.3851,"lon":2.1734,"what":"Barcelona School of Economics"},{"start":"2021-11","end":"2022-07","city":"Hsinchu","country":"Taiwan","lat":24.8138,"lon":120.9675,"what":"National Service"},{"start":"2022-08","end":"2023-07","city":"Paris","country":"France","lat":48.8566,"lon":2.3522,"what":"Sciences Po"},{"start":"2023-08","end":"2025-08","city":"Berlin","country":"Germany","lat":52.52,"lon":13.405,"what":"Klang Games"},{"start":"2025-09","end":"2026-04","city":"Paris","country":"France","lat":48.8566,"lon":2.3522,"what":"ENS Paris-Saclay"},{"start":"2026-05","city":"Paris","country":"France","lat":48.8566,"lon":2.3522,"what":"Inria"}];
+    var places = [{"start":"1997-09","end":"2006-07","city":"Taichung","country":"Taiwan","lat":24.1477,"lon":120.6736,"what":"Home","type":"home"},{"start":"2006-08","end":"2007-01","city":"Sydney","country":"Australia","lat":-33.8688,"lon":151.2093,"what":"3rd grade","type":"study"},{"start":"2007-02","end":"2013-08","city":"Taichung","country":"Taiwan","lat":24.1477,"lon":120.6736,"what":"Home","type":"home"},{"start":"2013-09","end":"2015-07","city":"Richmond","country":"Canada","lat":49.1666,"lon":-123.1336,"what":"High school (IB)","type":"study"},{"start":"2015-08","end":"2017-08","city":"Tempe","country":"USA","lat":33.4255,"lon":-111.94,"what":"Arizona State University","type":"study"},{"start":"2017-09","end":"2018-07","city":"London","country":"UK","lat":51.5074,"lon":-0.1278,"what":"London School of Economics","type":"study"},{"start":"2018-08","end":"2019-07","city":"Tempe","country":"USA","lat":33.4255,"lon":-111.94,"what":"Arizona State University","type":"study"},{"start":"2019-08","end":"2020-10","city":"Chicago","country":"USA","lat":41.7886,"lon":-87.5987,"what":"University of Chicago","type":"study"},{"start":"2020-11","end":"2021-10","city":"Barcelona","country":"Spain","lat":41.3851,"lon":2.1734,"what":"Barcelona School of Economics","type":"work"},{"start":"2021-11","end":"2022-07","city":"Hsinchu","country":"Taiwan","lat":24.8138,"lon":120.9675,"what":"National Service","type":"service"},{"start":"2022-08","end":"2023-07","city":"Paris","country":"France","lat":48.8566,"lon":2.3522,"what":"Sciences Po","type":"work"},{"start":"2023-08","end":"2025-08","city":"Berlin","country":"Germany","lat":52.52,"lon":13.405,"what":"Klang Games","type":"work"},{"start":"2025-09","end":"2026-04","city":"Paris","country":"France","lat":48.8566,"lon":2.3522,"what":"ENS Paris-Saclay","type":"study"},{"start":"2026-05","city":"Paris","country":"France","lat":48.8566,"lon":2.3522,"what":"Inria","type":"work"}];
     var first = String(places[0].start).split("-");
     var START = { y: +first[0], m: +first[1] || 1 };
     var now = new Date();
@@ -354,6 +354,151 @@
       landPath.datum(topojson.feature(world, world.objects.land));
       draw();
     });
+  })();
+</script> <style>
+  .wi-viz {
+    --t-home: #257de0;
+    --t-study: #f47230;
+    --t-work: #00b894;
+    --t-service: #f2a600;
+    --ink: var(--global-text-color);
+    --muted: var(--global-text-color-light);
+    --grid: rgba(128, 128, 128, 0.22);
+    margin-top: 2.5rem;
+  }
+  html[data-theme="dark"] .wi-viz {
+    --t-home: #338ced;
+    --t-study: #e76624;
+    --t-work: #00a888;
+    --t-service: #d28e05;
+  }
+  .wi-viz h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+  .wi-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 1.75rem; }
+  .wi-stat { border: 1px solid var(--grid); border-radius: 12px; padding: 0.9rem 1rem; }
+  .wi-stat .n { font-size: 2.2rem; font-weight: 700; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .wi-stat .l { font-size: 0.9rem; color: var(--muted); margin-top: 0.2rem; }
+  .wi-stat .s { font-size: 0.78rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.35; }
+  @media (max-width: 640px) { .wi-stats { grid-template-columns: repeat(2, 1fr); } }
+  .wi-legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.9rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .wi-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .wi-legend i { width: 14px; height: 10px; border-radius: 3px; display: inline-block; }
+  .wi-lanes-wrap { position: relative; }
+  .wi-lanes { width: 100%; height: auto; display: block; }
+  .wi-lanes text { fill: var(--ink); font-size: 13px; }
+  .wi-lanes .axis text { fill: var(--muted); font-size: 12px; }
+  .wi-lanes .grid line { stroke: var(--grid); }
+  .wi-lanes rect.bar:hover, .wi-lanes rect.bar:focus { stroke: var(--ink); stroke-width: 1.5; outline: none; }
+  .wi-tip {
+    position: absolute; pointer-events: none; background: var(--global-bg-color); color: var(--ink);
+    border: 1px solid var(--grid); border-radius: 8px; padding: 0.45rem 0.6rem; font-size: 0.85rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18); white-space: nowrap; transform: translate(-50%, -110%);
+  }
+  .wi-tip b { display: block; }
+  .wi-table { margin-top: 1rem; font-size: 0.9rem; }
+  .wi-table summary { cursor: pointer; color: var(--muted); }
+  .wi-table table { width: 100%; margin-top: 0.5rem; border-collapse: collapse; }
+  .wi-table th, .wi-table td { text-align: left; padding: 0.3rem 0.5rem; border-bottom: 1px solid var(--grid); color: var(--ink); }
+</style> <section class="wi-viz" aria-labelledby="wi-viz-title"> <h2 id="wi-viz-title">By the numbers</h2> <div class="wi-stats" id="wi-stats"></div> <div class="wi-legend" id="wi-legend"></div> <div class="wi-lanes-wrap"> <svg class="wi-lanes" id="wi-lanes" role="img" aria-label="Timeline of countries lived in, colored by home, study, work or service"></svg> <div class="wi-tip" id="wi-tip" hidden=""></div> </div> <details class="wi-table"> <summary>Show as table</summary> <table id="wi-table"></table> </details> </section> <script>
+  (function () {
+    var places = [{"start":"1997-09","end":"2006-07","city":"Taichung","country":"Taiwan","lat":24.1477,"lon":120.6736,"what":"Home","type":"home"},{"start":"2006-08","end":"2007-01","city":"Sydney","country":"Australia","lat":-33.8688,"lon":151.2093,"what":"3rd grade","type":"study"},{"start":"2007-02","end":"2013-08","city":"Taichung","country":"Taiwan","lat":24.1477,"lon":120.6736,"what":"Home","type":"home"},{"start":"2013-09","end":"2015-07","city":"Richmond","country":"Canada","lat":49.1666,"lon":-123.1336,"what":"High school (IB)","type":"study"},{"start":"2015-08","end":"2017-08","city":"Tempe","country":"USA","lat":33.4255,"lon":-111.94,"what":"Arizona State University","type":"study"},{"start":"2017-09","end":"2018-07","city":"London","country":"UK","lat":51.5074,"lon":-0.1278,"what":"London School of Economics","type":"study"},{"start":"2018-08","end":"2019-07","city":"Tempe","country":"USA","lat":33.4255,"lon":-111.94,"what":"Arizona State University","type":"study"},{"start":"2019-08","end":"2020-10","city":"Chicago","country":"USA","lat":41.7886,"lon":-87.5987,"what":"University of Chicago","type":"study"},{"start":"2020-11","end":"2021-10","city":"Barcelona","country":"Spain","lat":41.3851,"lon":2.1734,"what":"Barcelona School of Economics","type":"work"},{"start":"2021-11","end":"2022-07","city":"Hsinchu","country":"Taiwan","lat":24.8138,"lon":120.9675,"what":"National Service","type":"service"},{"start":"2022-08","end":"2023-07","city":"Paris","country":"France","lat":48.8566,"lon":2.3522,"what":"Sciences Po","type":"work"},{"start":"2023-08","end":"2025-08","city":"Berlin","country":"Germany","lat":52.52,"lon":13.405,"what":"Klang Games","type":"work"},{"start":"2025-09","end":"2026-04","city":"Paris","country":"France","lat":48.8566,"lon":2.3522,"what":"ENS Paris-Saclay","type":"study"},{"start":"2026-05","city":"Paris","country":"France","lat":48.8566,"lon":2.3522,"what":"Inria","type":"work"}];
+    var CONTINENT = {
+      Taiwan: "Asia", "South Korea": "Asia", Japan: "Asia", China: "Asia",
+      Australia: "Oceania", "New Zealand": "Oceania",
+      Canada: "North America", USA: "North America", Mexico: "North America",
+      UK: "Europe", Spain: "Europe", France: "Europe", Germany: "Europe", Italy: "Europe", Switzerland: "Europe", Netherlands: "Europe"
+    };
+    var TYPES = [
+      { id: "home", label: "Home" },
+      { id: "study", label: "Study" },
+      { id: "work", label: "Work" },
+      { id: "service", label: "Service" }
+    ];
+    var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var now = new Date();
+    var nowKey = now.getFullYear() * 12 + now.getMonth();
+    function key(s) { var p = String(s).split("-"); return +p[0] * 12 + (+p[1] - 1); }
+    function fmt(k) { return MONTHS[k % 12] + " " + Math.floor(k / 12); }
+    function uniq(a) { return a.filter(function (v, i) { return a.indexOf(v) === i; }); }
+    function typeLabel(id) { var t = TYPES.filter(function (t) { return t.id === id; })[0]; return t ? t.label : ""; }
+
+    var rows = places.map(function (p) {
+      var s = key(p.start), e = p.end ? key(p.end) : nowKey;
+      return { p: p, s: s, e: e, months: e - s + 1 };
+    });
+
+    // Stat tiles
+    var countries = uniq(places.map(function (p) { return p.country; }));
+    var continents = uniq(countries.map(function (c) { return CONTINENT[c] || "Other"; }));
+    var studied = uniq(places.filter(function (p) { return p.type === "study"; }).map(function (p) { return p.country; }));
+    var worked = uniq(places.filter(function (p) { return p.type === "work"; }).map(function (p) { return p.country; }));
+    var stats = [
+      { n: countries.length, l: "Countries lived in", s: countries.join(", ") },
+      { n: continents.length, l: "Continents", s: continents.join(", ") },
+      { n: studied.length, l: "Countries studied in", s: studied.join(", ") },
+      { n: worked.length, l: "Countries worked in", s: worked.join(", ") }
+    ];
+    document.getElementById("wi-stats").innerHTML = stats.map(function (t) {
+      return '<div class="wi-stat"><div class="n">' + t.n + '</div><div class="l">' + t.l + '</div><div class="s">' + t.s + "</div></div>";
+    }).join("");
+
+    // Legend (always shown, so identity is never color alone)
+    document.getElementById("wi-legend").innerHTML = TYPES.map(function (t) {
+      return '<span><i style="background: var(--t-' + t.id + ')"></i>' + t.label + "</span>";
+    }).join("");
+
+    // Swimlane timeline: one row per country, in order of first arrival
+    var W = 900, LABEL = 110, PAD_R = 12, ROW = 30, BAR = 16, TOP = 6, AXIS = 26;
+    var H = TOP + countries.length * ROW + AXIS;
+    var x0 = Math.min.apply(null, rows.map(function (r) { return r.s; }));
+    var x1 = nowKey + 1;
+    function X(k) { return LABEL + ((k - x0) / (x1 - x0)) * (W - LABEL - PAD_R); }
+    var svg = d3.select("#wi-lanes").attr("viewBox", "0 0 " + W + " " + H);
+
+    var firstYear = Math.ceil((Math.floor(x0 / 12) + 1) / 5) * 5;
+    var years = d3.range(firstYear, now.getFullYear() + 1, 5);
+    var grid = svg.append("g").attr("class", "grid");
+    var axis = svg.append("g").attr("class", "axis");
+    years.forEach(function (y) {
+      grid.append("line").attr("x1", X(y * 12)).attr("x2", X(y * 12)).attr("y1", TOP).attr("y2", TOP + countries.length * ROW);
+      axis.append("text").attr("x", X(y * 12)).attr("y", H - 6).attr("text-anchor", "middle").text(y);
+    });
+    countries.forEach(function (c, i) {
+      svg.append("text").attr("x", 0).attr("y", TOP + i * ROW + ROW / 2 + 4).text(c);
+    });
+
+    var tip = document.getElementById("wi-tip");
+    var wrap = document.querySelector(".wi-lanes-wrap");
+    function showTip(evt, r) {
+      var dur = r.months >= 12 ? (r.months / 12).toFixed(1).replace(/\.0$/, "") + " yr" : r.months + " mo";
+      tip.innerHTML = "<b>" + r.p.city + ", " + r.p.country + "</b>" + r.p.what + " &middot; " + typeLabel(r.p.type) +
+        "<br>" + fmt(r.s) + " &ndash; " + (r.p.end ? fmt(r.e) : "present") + " (" + dur + ")";
+      var box = wrap.getBoundingClientRect(), mb = evt.target.getBoundingClientRect();
+      tip.style.left = mb.left + mb.width / 2 - box.left + "px";
+      tip.style.top = mb.top - box.top + "px";
+      tip.hidden = false;
+    }
+    svg.append("g").selectAll("rect").data(rows).enter().append("rect")
+      .attr("class", "bar")
+      .attr("tabindex", 0)
+      .attr("x", function (r) { return X(r.s) + 1; })
+      .attr("width", function (r) { return Math.max(3, X(r.e + 1) - X(r.s) - 2); })
+      .attr("y", function (r) { return TOP + countries.indexOf(r.p.country) * ROW + (ROW - BAR) / 2; })
+      .attr("height", BAR)
+      .attr("rx", 4)
+      .style("fill", function (r) { return "var(--t-" + r.p.type + ")"; })
+      .attr("aria-label", function (r) { return r.p.city + ", " + r.p.country + ": " + r.p.what + ", " + fmt(r.s) + " to " + (r.p.end ? fmt(r.e) : "present"); })
+      .on("mouseenter", function (evt, r) { showTip(evt, r); })
+      .on("focus", function (evt, r) { showTip(evt, r); })
+      .on("mouseleave", function () { tip.hidden = true; })
+      .on("blur", function () { tip.hidden = true; });
+
+    // Table view
+    document.getElementById("wi-table").innerHTML =
+      "<thead><tr><th>From</th><th>To</th><th>City</th><th>Country</th><th>What</th><th>Type</th></tr></thead><tbody>" +
+      rows.map(function (r) {
+        return "<tr><td>" + fmt(r.s) + "</td><td>" + (r.p.end ? fmt(r.e) : "present") + "</td><td>" + r.p.city + "</td><td>" +
+          r.p.country + "</td><td>" + r.p.what + "</td><td>" + typeLabel(r.p.type) + "</td></tr>";
+      }).join("") + "</tbody>";
   })();
 </script> </article> </div> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> <div class="container"> © Copyright 2026 Ian Hsieh. </div> </footer> <script>
   window.alFolio = {
